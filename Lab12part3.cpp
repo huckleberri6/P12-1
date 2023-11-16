@@ -69,21 +69,21 @@ bool readFromFile(string filename)
 						i++;
 						letter = line.substr(i, 1);
 					}
-					numCharacters++;
+					//numCharacters++;
 				}
-				else if (letter == "-")
-					numCharacters++;
+				/*else if (letter == "-")
+					numCharacters++;*/
 				else if (i == line.length() - 1)
 				{
-					numCharacters++;
+					//numCharacters++;
 					numWords++;
 				}
-				else
+				if (containsLetter(letter))
 					numCharacters++;
 		}
 	}
 
-	cout << "Words:      " << numWords + 4 << endl;;
+	cout << "Words:      " << numWords << endl;;
 	cout << "Characters: " << numCharacters << endl;
 	inFile.close();
 	return true;
@@ -93,7 +93,7 @@ bool containsLetter(string s)
 {
 	for (int i = 0; i < s.length(); i++)
 	{
-		string letter = s.substr(i, 0);
+		string letter = s.substr(i, 1);
 		if (letter == "A" || letter == "a")
 			return true;
 		else if (letter == "A" || letter == "a")
